@@ -6,7 +6,7 @@ app=FastAPI(
 )
     
 #retorna nome e código de todos os municipios sem qualquer parâmetro
-@app.get("https://api-tce.onrender.com/",tags=["Informações dos munícipios"])
+@app.get("/",tags=["Informações dos munícipios"])
 def Retorna_o_nome_e_codigo_de_todos_os_municipios():
     dados=requests.get("https://api-dados-abertos.tce.ce.gov.br/municipios")
     dados=dados.json()
