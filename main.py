@@ -40,6 +40,7 @@ def Retorna_o_nome_do_municipio_usando_o_codigo(codigo):
         return dicionarios_municipio
     else:
         return "Cidade não encontrada"
+    
 #Retorna nome e código de um município específico usando o nome deste como parâmetro
 @app.get("/nome_do_municipio={nome}", tags=["Informações dos munícipios"])
 def retorna_o_codigo_do_municipio_usando_o_nome(nome):
@@ -87,6 +88,7 @@ def retorna_informaçoes_bancarias_de_municipios(codigo_municipio ,ano_exercicio
             }
             resposta["dados"].append(novo_dicionario)
     return resposta
+
 #retorna as contas com menor valor de abertura no mês do ano específicado
 @app.get("/menor_valor_de_abertura_codigomunicipio={codigo_municipio}&ano={ano_exercicio}&mes={mes_numerico}",tags=["Informações Bancárias"], description="Adicione “00” ao final do ano(2007 a 2024). Exemplo: 2010 → 201000.")
 def retorna_as_contas_com_o_menor_valor_de_abertura_no_mes(codigo_municipio,ano_exercicio,mes_numerico:int):
@@ -120,6 +122,7 @@ def retorna_as_contas_com_o_menor_valor_de_abertura_no_mes(codigo_municipio,ano_
                 resposta["dados"].append(novo_dicionario)
     return resposta
 
+#retorna as contas com o maior valor de abertura no mês do ano específicado
 @app.get("/maior_valor_de_abertura_codigomunicipio={codigo_municipio}&ano={ano_exercicio}&mes={mes_numerico}",tags=["Informações Bancárias"], description="Adicione “00” ao final do ano(2007 a 2024). Exemplo: 2010 → 201000.")
 def retorna_as_contas_com_o_maior_valor_de_abertura_no_mes(codigo_municipio,ano_exercicio,mes_numerico:int):
     resposta={"dados":[]}
